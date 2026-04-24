@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Du Lịch Đường Lâm | Xe Điện Sơn Tây</title>
+  <meta name="description" content="Thuê xe điện tham quan làng cổ Đường Lâm – Sơn Tây. Giá rẻ, tiện lợi, trải nghiệm văn hóa Bắc Bộ trọn vẹn cùng gia đình & bạn bè.">
+  <meta name="keywords" content="xe điện Đường Lâm, thuê xe du lịch Sơn Tây, xe điện làng cổ, tham quan Đường Lâm">
+  
+  <!-- Tailwind CSS + Configuration -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <!-- Bootstrap Icons (thay thế Lucide) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: '#1e3a2f',    // xanh rừng sâu
+            bamboo: '#568c5e',    // tre xanh
+            gold: '#d4af37',       // vàng đồng
+            cream: '#fef9f0',      // kem sữa
+            earth: '#9b7b4c',      // đất nung
+            stone: '#4b5563'
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['Inter', 'system-ui', 'sans-serif']
+          },
+          animation: {
+            'float': 'float 3s ease-in-out infinite',
+            'fade-up': 'fadeUp 0.7s ease forwards',
+            'fade-in': 'fadeIn 0.5s ease forwards',
+          },
+          keyframes: {
+            float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-8px)' } },
+            fadeUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom smooth & glassmorph */
+    .glass-nav { background: rgba(30, 58, 47, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+    .card-hover { transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
+    .card-hover:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1); }
+    .hero-radial { background: radial-gradient(circle at 10% 20%, rgba(86,140,94,0.2) 0%, rgba(30,58,47,0.95) 90%); }
+    .faq-item { border-bottom: 1px solid #e9e2d4; transition: all 0.2s; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+    .faq-item.open .faq-answer { max-height: 260px; }
+    .faq-icon { transition: transform 0.3s; }
+    .faq-item.open .faq-icon { transform: rotate(180deg); color: #d4af37; }
+    .stat-number { background: linear-gradient(135deg, #d4af37, #f3e5ab); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .scroll-hint { animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(6px); } }
+    .gallery-card { transition: all 0.4s ease; cursor: pointer; }
+    .gallery-card:hover { transform: scale(1.02); box-shadow: 0 15px 25px -12px rgba(0,0,0,0.2); }
+    .btn-gold { background: #d4af37; transition: all 0.2s; box-shadow: 0 8px 18px -6px rgba(212,175,55,0.3); }
+    .btn-gold:hover { background: #c5a122; transform: scale(1.02); box-shadow: 0 12px 22px -8px rgba(212,175,55,0.4); }
+    .btn-outline-light { border: 1.5px solid rgba(255,255,240,0.5); transition: all 0.2s; }
+    .btn-outline-light:hover { border-color: #d4af37; background: rgba(212,175,55,0.1); color: #d4af37; }
+  </style>
+</head>
+<body class="font-body text-stone-700 bg-cream overflow-x-hidden">
+
+  <!-- Floating CTA Phone -->
+  <a href="tel:0984000000" id="floatingPhone" class="fixed bottom-6 right-6 z-50 bg-gold text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 shadow-gold/30" aria-label="Gọi ngay">
+    <i class="bi bi-telephone-fill text-xl"></i>
+  </a>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 w-full z-40 glass-nav transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center text-gold text-xl">
+          <i class="bi bi-ev-station-fill"></i>
+        </div>
+        <span id="navBrand" class="font-display text-gold text-xl font-bold tracking-tight">Xe Điện Đường Lâm</span>
+      </div>
+      <div class="hidden md:flex items-center gap-7 text-sm font-medium text-cream/85">
+        <a href="#services" class="hover:text-gold transition-colors duration-200">Dịch vụ</a>
+        <a href="#pricing" class="hover:text-gold transition-colors duration-200">Bảng giá</a>
+        <a href="#gallery" class="hover:text-gold transition-colors duration-200">Hình ảnh</a>
+        <a href="#reviews" class="hover:text-gold transition-colors duration-200">Đánh giá</a>
+        <a href="#contact" class="hover:text-gold transition-colors duration-200">Liên hệ</a>
+      </div>
+      <button id="mobileMenuBtn" class="md:hidden text-cream text-2xl" aria-label="Menu">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-forest/95 backdrop-blur-md px-5 pb-5 pt-2 text-cream/80 space-y-3 text-sm border-t border-gold/20">
+      <a href="#services" class="block py-2 hover:text-gold transition flex items-center gap-2"><i class="bi bi-briefcase-fill w-5"></i> Dịch vụ</a>
+      <a href="#pricing" class="block py-2 hover:text-gold transition flex items-center gap-2"><i class="bi bi-tags-fill w-5"></i> Bảng giá</a>
+      <a href="#gallery" class="block py-2 hover:text-gold transition flex items-center gap-2"><i class="bi bi-images w-5"></i> Hình ảnh</a>
+      <a href="#reviews" class="block py-2 hover:text-gold transition flex items-center gap-2"><i class="bi bi-star-fill w-5"></i> Đánh giá</a>
+      <a href="#contact" class="block py-2 hover:text-gold transition flex items-center gap-2"><i class="bi bi-headset w-5"></i> Liên hệ</a>
+    </div>
+  </nav>
+
+  <!-- HERO Section -->
+  <header class="relative min-h-screen w-full bg-gradient-to-br from-forest via-bamboo/90 to-forest flex items-center overflow-hidden pt-24 pb-16">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M30 0L60 30L30 60L0 30Z" fill="none" stroke="%23ffffff" stroke-width="0.4" opacity="0.1"/%3E%3C/svg%3E')]"></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-5 md:px-8 flex flex-col lg:flex-row items-center gap-12">
+      <div class="flex-1 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 text-gold text-sm mb-5 animate-fade-up">
+          <i class="bi bi-geo-alt-fill text-gold"></i>
+          <span>Làng cổ Đường Lâm – Sơn Tây, Hà Nội</span>
+        </div>
+        <h1 id="heroTitle" class="font-display text-4xl md:text-5xl lg:text-6xl text-white leading-tight font-bold animate-fade-up" style="animation-delay:0.1s">Xe điện du lịch Đường Lâm – Tham quan làng cổ Sơn Tây</h1>
+        <p id="heroSubtitle" class="mt-5 text-cream/80 text-base md:text-lg leading-relaxed max-w-xl animate-fade-up" style="animation-delay:0.2s">Dịch vụ chuyên nghiệp, giá rẻ, xe sạch sẽ – Đưa bạn khám phá trọn vẹn vẻ đẹp Bắc Bộ.</p>
+        <div class="mt-9 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-up" style="animation-delay:0.3s">
+          <a href="tel:0984000000" id="heroCTA1" class="btn-gold inline-flex items-center justify-center gap-2 text-white font-semibold px-8 py-3.5 rounded-full shadow-lg transition-all"><i class="bi bi-telephone-fill"></i> Gọi ngay</a>
+          <a href="#pricing" id="heroCTA2" class="btn-outline-light inline-flex items-center justify-center gap-2 text-cream hover:text-gold px-8 py-3.5 rounded-full transition-all"><i class="bi bi-lightning-charge-fill"></i> Đặt xe nhanh</a>
+        </div>
+        <div class="mt-11 flex items-center gap-8 justify-center lg:justify-start animate-fade-up" style="animation-delay:0.4s">
+          <div><div class="stat-number font-display text-2xl font-bold">5000+</div><div class="text-cream/60 text-xs">Khách hài lòng</div></div>
+          <div class="w-px h-8 bg-cream/20"></div>
+          <div><div class="stat-number font-display text-2xl font-bold">4.9⭐</div><div class="text-cream/60 text-xs">Đánh giá 5 sao</div></div>
+          <div class="w-px h-8 bg-cream/20"></div>
+          <div><div class="stat-number font-display text-2xl font-bold">3+</div><div class="text-cream/60 text-xs">Kinh nghiệm</div></div>
+        </div>
+      </div>
+      <div class="flex-1 max-w-md w-full animate-fade-up" style="animation-delay:0.2s">
+        <div class="relative bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-2xl text-center">
+          <div class="text-7xl mb-4 animate-float"><i class="bi bi-ev-front-fill text-gold"></i></div>
+          <div class="text-cream font-display text-2xl">Xe điện du lịch</div>
+          <div class="text-gold text-sm mt-2 font-medium">Thoải mái – An toàn – Tiết kiệm</div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-cream/40 scroll-hint"><i class="bi bi-chevron-double-down text-xl"></i></div>
+  </header>
+
+  <main>
+    <!-- Giới thiệu dịch vụ -->
+    <section class="w-full py-20 md:py-28 bg-white" id="about">
+      <div class="max-w-6xl mx-auto px-5 md:px-8">
+        <div class="text-center mb-14">
+          <h2 class="font-display text-3xl md:text-4xl text-forest font-bold">Trải nghiệm khác biệt</h2>
+          <div class="w-16 h-1 bg-gold mx-auto mt-4 rounded-full"></div>
+          <p class="mt-5 text-stone-500 max-w-2xl mx-auto">Xe điện thân thiện, di chuyển nhẹ nhàng qua từng con ngõ nhỏ, đưa bạn đến gần hơn với lịch sử hàng nghìn năm.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="card-hover bg-cream rounded-2xl p-8 text-center shadow-md"><div class="w-16 h-16 bg-forest/10 rounded-2xl flex items-center justify-center mx-auto mb-5 text-3xl text-gold"><i class="bi bi-backpack-fill"></i></div><h3 class="font-display text-xl text-forest mb-2">Khách du lịch</h3><p class="text-stone-500 text-sm leading-relaxed">Khám phá từng mái đình, cây đa, giếng nước mà không mệt mỏi. Tài xế thân thiệt.</p></div>
+          <div class="card-hover bg-cream rounded-2xl p-8 text-center shadow-md"><div class="w-16 h-16 bg-forest/10 rounded-2xl flex items-center justify-center mx-auto mb-5 text-3xl text-gold"><i class="bi bi-people-fill"></i></div><h3 class="font-display text-xl text-forest mb-2">Gia đình & Người cao tuổi</h3><p class="text-stone-500 text-sm leading-relaxed">Xe có mái che, chở êm ái, phù hợp cho trẻ nhỏ và cụ già đi cùng.</p></div>
+          <div class="card-hover bg-cream rounded-2xl p-8 text-center shadow-md"><div class="w-16 h-16 bg-forest/10 rounded-2xl flex items-center justify-center mx-auto mb-5 text-3xl text-gold"><i class="bi bi-bus-front-fill"></i></div><h3 class="font-display text-xl text-forest mb-2">Đoàn tham quan</h3><p class="text-stone-500 text-sm leading-relaxed">Nhóm 4–20 người, linh hoạt lịch trình, thời gian tùy chỉnh theo yêu cầu.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DỊCH VỤ CUNG CẤP -->
+    <section class="w-full py-20 md:py-28 bg-cream" id="services">
+      <div class="max-w-6xl mx-auto px-5 md:px-8">
+        <div class="text-center mb-14"><h2 class="font-display text-3xl md:text-4xl text-forest font-bold">Dịch vụ nổi bật</h2><div class="w-16 h-1 bg-gold mx-auto mt-4 rounded-full"></div></div>
+        <div class="grid md:grid-cols-3 gap-7">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover"><div class="bg-gradient-to-r from-forest to-bamboo p-6 text-center"><i class="bi bi-tree-fill text-5xl text-white"></i><h3 class="font-display text-xl text-white mt-3">Tour làng cổ</h3></div><div class="p-6"><p class="text-stone-500 text-sm mb-3">Khám phá đình Mông Phụ, nhà cổ ông Lê Văn Hiến, giếng cổ…</p><div class="flex items-center gap-2 text-earth text-sm"><i class="bi bi-clock"></i><span>30–60 phút</span></div><div class="flex items-center gap-2 text-gold font-semibold mt-2"><i class="bi bi-tag-fill"></i><span>Từ 100.000đ</span></div></div></div>
+          <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover"><div class="bg-gradient-to-r from-gold to-earth p-6 text-center"><i class="bi bi-stopwatch-fill text-5xl text-white"></i><h3 class="font-display text-xl text-white mt-3">Thuê xe theo giờ</h3></div><div class="p-6"><p class="text-stone-500 text-sm mb-3">Chủ động lịch trình, dừng chụp ảnh thỏa thích.</p><div class="flex items-center gap-2 text-earth text-sm"><i class="bi bi-hourglass-split"></i><span>Theo yêu cầu</span></div><div class="flex items-center gap-2 text-gold font-semibold mt-2"><i class="bi bi-tag-fill"></i><span>Từ 200.000đ/giờ</span></div></div></div>
+          <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover"><div class="bg-gradient-to-r from-bamboo to-forest p-6 text-center"><i class="bi bi-people-fill text-5xl text-white"></i><h3 class="font-display text-xl text-white mt-3">Thuê xe đoàn</h3></div><div class="p-6"><p class="text-stone-500 text-sm mb-3">Dành cho công ty, trường học, hội nhóm. Ưu đãi lớn.</p><div class="flex items-center gap-2 text-earth text-sm"><i class="bi bi-diagram-3-fill"></i><span>4–20 người</span></div><div class="flex items-center gap-2 text-gold font-semibold mt-2"><i class="bi bi-envelope-paper-fill"></i><span>Liên hệ báo giá</span></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BẢNG GIÁ -->
+    <section class="w-full py-20 md:py-28 bg-white" id="pricing">
+      <div class="max-w-4xl mx-auto px-5 md:px-8">
+        <div class="text-center mb-12"><h2 class="font-display text-3xl md:text-4xl text-forest font-bold">Bảng giá minh bạch</h2><div class="w-16 h-1 bg-gold mx-auto mt-4 rounded-full"></div><p class="mt-4 text-stone-400 text-sm"><i class="bi bi-info-circle-fill"></i> Giá đã bao gồm thuế, áp dụng quanh năm</p></div>
+        <div class="bg-cream rounded-2xl overflow-hidden shadow-xl border border-forest/10">
+          <table class="w-full"><thead><tr class="bg-forest text-cream"><th class="text-left py-4 px-6 font-semibold">Dịch vụ</th><th class="text-left py-4 px-6 font-semibold">Thời gian</th><th class="text-right py-4 px-6 font-semibold">Giá</th></tr></thead><tbody>
+            <tr class="border-b border-earth/10"><td class="py-4 px-6 font-medium">Tour cơ bản</td><td class="py-4 px-6 text-stone-500">30 phút</td><td id="priceRow1" class="py-4 px-6 text-right font-bold text-gold">100.000đ</td></tr>
+            <tr class="border-b border-earth/10 bg-white/40"><td class="py-4 px-6 font-medium">Tour đầy đủ</td><td class="py-4 px-6 text-stone-500">60 phút</td><td id="priceRow2" class="py-4 px-6 text-right font-bold text-gold">200.000đ</td></tr>
+            <tr class="border-b border-earth/10"><td class="py-4 px-6 font-medium">Thuê xe theo giờ</td><td class="py-4 px-6 text-stone-500">1 giờ</td><td class="py-4 px-6 text-right font-bold text-gold">200.000đ</td></tr>
+            <tr><td class="py-4 px-6 font-medium">Xe riêng đoàn</td><td class="py-4 px-6 text-stone-500">Theo yêu cầu</td><td class="py-4 px-6 text-right font-semibold text-earth">Liên hệ</td></tr>
+          </tbody></table>
+        </div>
+        <div class="mt-8 text-center"><a href="tel:0984000000" class="btn-gold inline-flex items-center gap-2 text-white font-semibold px-8 py-3 rounded-full shadow-lg"><i class="bi bi-telephone-outbound-fill"></i> Đặt xe ngay</a></div>
+      </div>
+    </section>
+
+    <!-- HÌNH ẢNH GALLERY -->
+    <section class="w-full py-20 md:py-28 bg-cream" id="gallery">
+      <div class="max-w-6xl mx-auto px-5 md:px-8"><div class="text-center mb-12"><h2 class="font-display text-3xl md:text-4xl text-forest font-bold">Khoảnh khắc đáng nhớ</h2><div class="w-16 h-1 bg-gold mx-auto mt-4 rounded-full"></div></div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+        <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-md aspect-[4/3] flex flex-col items-center justify-center bg-gradient-to-br from-forest/10 to-bamboo/20"><i class="bi bi-ev-front-fill text-6xl text-gold mb-3"></i><span class="font-medium text-forest/80">Xe điện mới</span></div>
+        <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-md aspect-[4/3] flex flex-col items-center justify-center bg-gradient-to-br from-gold/10 to-earth/20"><i class="bi bi-building-fill text-6xl text-earth mb-3"></i><span class="font-medium text-forest/80">Đình làng cổ</span></div>
+        <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-md aspect-[4/3] flex flex-col items-center justify-center bg-gradient-to-br from-bamboo/20 to-forest/20"><i class="bi bi-tree-fill text-6xl text-bamboo mb-3"></i><span class="font-medium text-forest/80">Đường làng xanh</span></div>
+        <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-md aspect-[4/3] flex flex-col items-center justify-center bg-gradient-to-br from-earth/10 to-gold/20"><i class="bi bi-house-heart-fill text-6xl text-earth mb-3"></i><span class="font-medium text-forest/80">Nhà cổ trăm tuổi</span></div>
+        <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-md aspect-[4/3] flex flex-col items-center justify-center bg-gradient-to-br from-forest/20 to-bamboo/30"><i class="bi bi-emoji-smile-fill text-6xl text-gold mb-3"></i><span class="font-medium text-forest/80">Du khách vui vẻ</span></div>
+        <div class="gallery-card bg-white rounded-xl overflow-hidden shadow-md aspect-[4/3] flex flex-col items-center justify-center bg-gradient-to-br from-gold/30 to-forest/20"><i class="bi bi-camera-fill text-6xl text-gold mb-3"></i><span class="font-medium text-forest/80">Check-in Đường Lâm</span></div>
+      </div></div>
+    </section>
+
+    <!-- ĐỊA ĐIỂM & MAP -->
+    <section class="w-full py-20 md:py-28 bg-white" id="location">
+      <div class="max-w-6xl mx-auto px-5 md:px-8"><div class="text-center mb-12"><h2 class="font-display text-3xl md:text-4xl text-forest font-bold">Đến với chúng tôi</h2><div class="w-16 h-1 bg-gold mx-auto mt-4 rounded-full"></div></div>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div><div class="flex gap-4 mb-7"><div class="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center"><i class="bi bi-pin-map-fill text-gold text-xl"></i></div><div><h3 class="font-bold text-forest">Địa chỉ</h3><p id="addressDisplay" class="text-stone-500 text-sm">Tổ dân phố Mông Phụ, xã Đường Lâm, thị xã Sơn Tây, Hà Nội</p></div></div>
+        <div class="flex gap-4 mb-7"><div class="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center"><i class="bi bi-clock-fill text-gold text-xl"></i></div><div><h3 class="font-bold text-forest">Giờ hoạt động</h3><p class="text-stone-500 text-sm">7:00 – 18:00 hàng ngày (kể cả lễ, Tết)</p></div></div>
+        <div class="flex gap-4"><div class="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center"><i class="bi bi-headset text-gold text-xl"></i></div><div><h3 class="font-bold text-forest">Hotline</h3><p id="locationPhone" class="text-gold font-bold text-2xl">0984 000 000</p></div></div></div>
+        <div class="rounded-2xl overflow-hidden shadow-2xl border border-gold/20 aspect-video"><iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.123!2d105.577!3d21.157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134f5a7e2b8f5e7%3A0x6e0b8e7a5b5c5a5a!2zTMOgbmcgY-G7lSDEkMaw4budbmcgTMOibQ!5e0!3m2!1svi!2svn!4v1700000000000!5m2!1svi!2svn" loading="lazy"></iframe></div>
+      </div></div>
+    </section>
+
+    <!-- ĐÁNH GIÁ -->
+    <section class="w-full py-20 md:py-28 bg-cream" id="reviews">
+      <div class="max-w-6xl mx-auto px-5 md:px-8"><div class="text-center mb-12"><h2 class="font-display text-3xl md:text-4xl text-forest font-bold">Khách hàng nói gì?</h2><div class="w-16 h-1 bg-gold mx-auto mt-4 rounded-full"></div></div>
+      <div class="grid md:grid-cols-3 gap-7">
+        <div class="bg-white p-6 rounded-2xl shadow-md border-l-4 border-gold"><div class="flex text-gold mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p class="text-stone-500 text-sm pb-4 italic">“Xe sạch sẽ, bác tài nhiệt tình giới thiệu từng điểm, ông bà mình rất thích.”</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-forest/15 flex items-center justify-center font-bold text-forest">TH</div><div><p class="font-semibold text-forest">Chị Thu Hà</p><p class="text-xs text-stone-400">Hà Nội</p></div></div></div>
+        <div class="bg-white p-6 rounded-2xl shadow-md border-l-4 border-gold"><div class="flex text-gold mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p class="text-stone-500 text-sm pb-4 italic">“Gia đình 6 người thoải mái, giá hợp lý, được ghé nhiều điểm ưng ý.”</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center font-bold text-earth">MT</div><div><p class="font-semibold text-forest">Anh Minh Tuấn</p><p class="text-xs text-stone-400">TP.HCM</p></div></div></div>
+        <div class="bg-white p-6 rounded-2xl shadow-md border-l-4 border-gold"><div class="flex text-gold mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p class="text-stone-500 text-sm pb-4 italic">“Đoàn công ty 15 người, tổ chức chuyên nghiệp, đúng giờ. Recommend!”</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-bamboo/20 flex items-center justify-center font-bold text-bamboo">HL</div><div><p class="font-semibold text-forest">Chị Hương Lan</p><p class="text-xs text-stone-400">Bắc Ninh</p></div></div></div>
+      </div></div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="w-full py-20 md:py-28 bg-white" id="faq">
+      <div class="max-w-3xl mx-auto px-5 md:px-8"><div class="text-center mb-12"><h2 class="font-display text-3xl md:text-4xl text-forest font-bold">Giải đáp thắc mắc</h2><div class="w-16 h-1 bg-gold mx-auto mt-4 rounded-full"></div></div>
+      <div id="faqList">
+        <div class="faq-item py-5 cursor-pointer" onclick="toggleFaq(this)"><div class="flex justify-between items-center"><h3 class="font-semibold text-forest text-md">Giá xe điện Đường Lâm bao nhiêu?</h3><i class="bi bi-chevron-down text-gold faq-icon text-xl"></i></div><div class="faq-answer text-stone-500 text-sm mt-1">Tour 30 phút từ 100.000đ, tour 60 phút từ 200.000đ. Thuê đoàn liên hệ báo giá.</div></div>
+        <div class="faq-item py-5 cursor-pointer" onclick="toggleFaq(this)"><div class="flex justify-between items-center"><h3 class="font-semibold text-forest text-md">Có cần đặt xe trước không?</h3><i class="bi bi-chevron-down text-gold faq-icon text-xl"></i></div><div class="faq-answer text-stone-500 text-sm mt-1">Nên đặt trước qua điện thoại vào cuối tuần & lễ để đảm bảo có xe.</div></div>
+        <div class="faq-item py-5 cursor-pointer" onclick="toggleFaq(this)"><div class="flex justify-between items-center"><h3 class="font-semibold text-forest text-md">Xe chở được tối đa bao nhiêu người?</h3><i class="bi bi-chevron-down text-gold faq-icon text-xl"></i></div><div class="faq-answer text-stone-500 text-sm mt-1">Mỗi xe 4-6 người, đoàn lớn có thể sắp xếp nhiều xe.</div></div>
+        <div class="faq-item py-5 cursor-pointer" onclick="toggleFaq(this)"><div class="flex justify-between items-center"><h3 class="font-semibold text-forest text-md">Xe có mái che chống nắng/mưa không?</h3><i class="bi bi-chevron-down text-gold faq-icon text-xl"></i></div><div class="faq-answer text-stone-500 text-sm mt-1">Tất cả xe đều có mái che, phù hợp mọi thời tiết.</div></div>
+      </div></div>
+    </section>
+
+    <!-- CTA cuối -->
+    <section class="w-full py-20 md:py-28 bg-gradient-to-r from-forest to-bamboo relative" id="contact">
+      <div class="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M30 0L60 30L30 60L0 30Z\" fill=\"none\" stroke=\"%23fff\" stroke-width=\"0.5\"/%3E%3C/svg%3E')]"></div>
+      <div class="relative z-10 max-w-3xl mx-auto px-5 text-center"><h2 class="font-display text-3xl md:text-4xl text-white font-bold mb-4">Sẵn sàng khám phá Đường Lâm?</h2><p class="text-cream/80 mb-8">Liên hệ ngay để đặt xe điện tham quan – trải nghiệm trọn vẹn nét đẹp làng cổ.</p><div class="flex flex-col sm:flex-row gap-5 justify-center"><a href="tel:0984000000" id="ctaPhone" class="btn-gold inline-flex items-center gap-3 text-white font-bold px-9 py-4 rounded-full text-lg shadow-xl"><i class="bi bi-telephone-fill"></i> 0984 000 000</a><a href="https://zalo.me/0984000000" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white inline-flex gap-2 px-9 py-4 rounded-full text-lg font-semibold transition shadow-xl"><i class="bi bi-chat-dots-fill"></i> Nhắn Zalo</a></div></div>
+    </section>
+  </main>
+
+  <footer class="bg-forest text-cream/70 py-12 mt-0"><div class="max-w-6xl mx-auto px-5 md:px-8"><div class="grid md:grid-cols-3 gap-8"><div><div class="flex items-center gap-2"><i class="bi bi-ev-station-fill text-gold text-2xl"></i><span class="font-display text-gold text-xl font-bold">Xe Điện Đường Lâm</span></div><p class="text-sm mt-3 leading-relaxed">Dịch vụ xe điện tham quan chuyên nghiệp tại Sơn Tây, giúp bạn khám phá làng cổ một cách nhẹ nhàng.</p></div><div><h4 class="font-semibold text-cream mb-3 text-sm">Liên kết nhanh</h4><div class="space-y-2 text-sm"><a href="#services" class="hover:text-gold block transition flex gap-2"><i class="bi bi-arrow-right-short"></i>Dịch vụ</a><a href="#pricing" class="hover:text-gold block transition flex gap-2"><i class="bi bi-arrow-right-short"></i>Bảng giá</a><a href="#reviews" class="hover:text-gold block transition flex gap-2"><i class="bi bi-arrow-right-short"></i>Đánh giá</a></div></div><div><h4 class="font-semibold text-cream mb-3 text-sm">Liên hệ</h4><p class="text-sm flex gap-2"><i class="bi bi-geo-alt-fill mt-0.5"></i> Mông Phụ, Đường Lâm, Sơn Tây, Hà Nội</p><p class="text-sm flex gap-2 mt-2"><i class="bi bi-telephone-fill"></i> 0984 000 000</p><p class="text-sm flex gap-2 mt-2"><i class="bi bi-clock-fill"></i> 7:00 – 18:00 mỗi ngày</p></div></div><div class="border-t border-cream/10 pt-6 mt-6 text-center text-xs">&copy; 2025 Xe Điện Đường Lâm. All rights reserved.</div></div></footer>
+
+  <script>
+    function toggleFaq(el) { el.classList.toggle('open'); }
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => { document.getElementById('mobileMenu').classList.toggle('hidden'); });
+    document.querySelectorAll('#mobileMenu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden')));
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if(t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }));
+
+    // Apply config mặc định (Element SDK đơn giản)
+    const defaultConfig = { hero_title:'Xe điện du lịch Đường Lâm – Tham quan làng cổ Sơn Tây', hero_subtitle:'Dịch vụ chuyên nghiệp, giá rẻ, xe sạch sẽ – Đưa bạn khám phá trọn vẹn vẻ đẹp Bắc Bộ.', phone_number:'0984 000 000', price_30min:'100.000đ', price_60min:'200.000đ', address_text:'Tổ dân phố Mông Phụ, xã Đường Lâm, thị xã Sơn Tây, Hà Nội'};
+    document.getElementById('heroTitle').innerText = defaultConfig.hero_title;
+    document.getElementById('heroSubtitle').innerText = defaultConfig.hero_subtitle;
+    document.getElementById('priceRow1').innerText = defaultConfig.price_30min;
+    document.getElementById('priceRow2').innerText = defaultConfig.price_60min;
+    document.getElementById('addressDisplay').innerText = defaultConfig.address_text;
+    document.getElementById('locationPhone').innerText = defaultConfig.phone_number;
+    document.getElementById('ctaPhone').innerHTML = '<i class="bi bi-telephone-fill"></i> ' + defaultConfig.phone_number;
+    document.getElementById('heroCTA1').href = 'tel:' + defaultConfig.phone_number.replace(/\s/g, '');
+    document.getElementById('floatingPhone').href = 'tel:' + defaultConfig.phone_number.replace(/\s/g, '');
+  </script>
+</body>
+</html>
